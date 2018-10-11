@@ -85,7 +85,6 @@
 		31CBCD0A216F9A8B00127038 = {
 			isa = PBXGroup;
 			children = (
-				2CF36EC0216F9EC300E1F90B /* TestFileGubanyi */,
 				31CBCD15216F9A8B00127038 /* TheNextBigCollage */,
 				31CBCD31216F9A8B00127038 /* TheNextBigCollageTests */,
 				31CBCD3C216F9A8C00127038 /* TheNextBigCollageUITests */,
@@ -106,6 +105,7 @@
 		31CBCD15216F9A8B00127038 /* TheNextBigCollage */ = {
 			isa = PBXGroup;
 			children = (
+				2CF36EC0216F9EC300E1F90B /* TestFileGubanyi */,
 				31CBCD16216F9A8B00127038 /* AppDelegate.h */,
 				31CBCD17216F9A8B00127038 /* AppDelegate.m */,
 				31CBCD19216F9A8B00127038 /* ViewController.h */,
