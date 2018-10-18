@@ -41,12 +41,13 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--View Controller-->
+        <!--EditCollageViewController-->
         <scene sceneID="60g-KK-Hcd">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8uC-aH-sFv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="3xl-UX-cWZ" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" restorationIdentifier="EditCollageViewController" id="yFO-1R-Lsu">
+                <exit id="hCd-f3-o5J" userLabel="Exit" sceneMemberID="exit"/>
+                <viewController title="EditCollageViewController" id="3xl-UX-cWZ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yFO-1R-Lsu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -90,6 +91,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <segue destination="hCd-f3-o5J" kind="unwind" unwindAction="unwind:" id="Bja-EB-H1q"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ydv-rl-qLZ">
                                 <rect key="frame" x="319" y="614" width="43" height="36"/>
@@ -99,6 +103,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <segue destination="Ffq-If-WZl" kind="show" id="YYt-Mt-75f"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ckc-HK-G5B">
                                 <rect key="frame" x="162.5" y="607" width="50" height="50"/>
@@ -130,7 +137,48 @@
                     </view>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="812" y="33"/>
+            <point key="canvasLocation" x="841" y="34"/>
+        </scene>
+        <!--FinishedCollageViewController-->
+        <scene sceneID="reU-ra-xtk">
+            <objects>
+                <viewController title="FinishedCollageViewController" id="Ffq-If-WZl" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uOS-le-iXd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Finished picture) Tap to go back to menu" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQr-gS-m0y">
+                                <rect key="frame" x="29" y="323.5" width="318.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="VQr-gS-m0y" firstAttribute="centerX" secondItem="uOS-le-iXd" secondAttribute="centerX" id="4bM-ch-Phu"/>
+                            <constraint firstItem="VQr-gS-m0y" firstAttribute="centerY" secondItem="uOS-le-iXd" secondAttribute="centerY" id="Pu0-KR-aMg"/>
+                            <constraint firstItem="VQr-gS-m0y" firstAttribute="centerX" secondItem="uOS-le-iXd" secondAttribute="centerX" id="TUY-o1-EgH"/>
+                            <constraint firstItem="VQr-gS-m0y" firstAttribute="centerY" secondItem="uOS-le-iXd" secondAttribute="centerY" id="YUt-CU-8au"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GIx-px-F5K"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="q5D-rY-bb1" appends="YES" id="Ct6-Ri-Bd1"/>
+                        </connections>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zkn-qX-LkX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="OTu-hU-MaF" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="q5D-rY-bb1">
+                    <connections>
+                        <segue destination="OTu-hU-MaF" kind="unwind" unwindAction="unwind:" id="QmB-QJ-iFc"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1701.5999999999999" y="32.833583208395808"/>
         </scene>
     </scenes>
     <resources>
