@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -92,12 +92,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="61.600000000000001" y="98.50074962518741"/>
+            <point key="canvasLocation" x="841" y="-780"/>
         </scene>
         <!--EditCollageViewController-->
         <scene sceneID="60g-KK-Hcd">
             <objects>
-                <viewController title="EditCollageViewController" id="3xl-UX-cWZ" sceneMemberID="viewController">
+                <viewController title="EditCollageViewController" id="3xl-UX-cWZ" customClass="CollageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yFO-1R-Lsu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -229,7 +229,7 @@
                 <exit id="TVv-aT-bfw" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="hRu-We-PMa">
                     <connections>
-                        <segue destination="TVv-aT-bfw" kind="unwind" unwindAction="unwind:" id="c3K-zf-9e4"/>
+                        <segue destination="TVv-aT-bfw" kind="unwind" unwindAction="unwindToEdit:" id="lWX-81-Ywi"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
