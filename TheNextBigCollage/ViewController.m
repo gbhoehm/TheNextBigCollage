@@ -7,8 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "CollectionViewCell.h"
 
 @interface ViewController ()
+{
+    NSArray *titles;
+}
 
 @end
 
@@ -21,11 +25,13 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 6;
+    return titles.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    cell.images.image = [UIImage imageNamed:titles[indexPath.row]];
+    cell.cellTitle.text = titles[indexPath.row];
     return cell;
 }
 
@@ -41,7 +47,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    titles = @[@"Collage1", @"Collage2", @"Collage3"];
     
     [[self view] setBackgroundColor:[UIColor whiteColor]];
     
