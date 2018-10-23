@@ -49,7 +49,7 @@
     [super viewDidLoad];
     titles = @[@"Collage1", @"Collage2", @"Collage3"];
     
-    [[self view] setBackgroundColor:[UIColor purpleColor]];
+    [[self view] setBackgroundColor:[UIColor whiteColor]];
     
 }
 
