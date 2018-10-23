@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2CF36EC1216F9EC300E1F90B /* TestFileGubanyi in Resources */ = {isa = PBXBuildFile; fileRef = 2CF36EC0216F9EC300E1F90B /* TestFileGubanyi */; };
 		2CF36EC4216FA0EA00E1F90B /* CollageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF36EC3216FA0EA00E1F90B /* CollageViewController.m */; };
+		3180E3CB217F539C0067BD02 /* CollageMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3180E3CA217F539C0067BD02 /* CollageMenuViewController.m */; };
 		31CBCD18216F9A8B00127038 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CBCD17216F9A8B00127038 /* AppDelegate.m */; };
 		31CBCD1B216F9A8B00127038 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CBCD1A216F9A8B00127038 /* ViewController.m */; };
 		31CBCD1E216F9A8B00127038 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31CBCD1C216F9A8B00127038 /* Main.storyboard */; };
@@ -41,6 +42,8 @@
 		2CF36EC0216F9EC300E1F90B /* TestFileGubanyi */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestFileGubanyi; sourceTree = "<group>"; };
 		2CF36EC2216FA0EA00E1F90B /* CollageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollageViewController.h; sourceTree = "<group>"; };
 		2CF36EC3216FA0EA00E1F90B /* CollageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollageViewController.m; sourceTree = "<group>"; };
+		3180E3C9217F539C0067BD02 /* CollageMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollageMenuViewController.h; sourceTree = "<group>"; };
+		3180E3CA217F539C0067BD02 /* CollageMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollageMenuViewController.m; sourceTree = "<group>"; };
 		31CBCD13216F9A8B00127038 /* TheNextBigCollage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheNextBigCollage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31CBCD16216F9A8B00127038 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		31CBCD17216F9A8B00127038 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -116,6 +119,8 @@
 				2CF36EC2216FA0EA00E1F90B /* CollageViewController.h */,
 				2CF36EC3216FA0EA00E1F90B /* CollageViewController.m */,
 				31CBCD1C216F9A8B00127038 /* Main.storyboard */,
+				3180E3C9217F539C0067BD02 /* CollageMenuViewController.h */,
+				3180E3CA217F539C0067BD02 /* CollageMenuViewController.m */,
 				31CBCD22216F9A8B00127038 /* Assets.xcassets */,
 				31CBCD24216F9A8B00127038 /* LaunchScreen.storyboard */,
 				31CBCD27216F9A8B00127038 /* Info.plist */,
@@ -277,6 +282,7 @@
 				31CBCD1B216F9A8B00127038 /* ViewController.m in Sources */,
 				31CBCD21216F9A8B00127038 /* TheNextBigCollage.xcdatamodeld in Sources */,
 				31CBCD29216F9A8B00127038 /* main.m in Sources */,
+				3180E3CB217F539C0067BD02 /* CollageMenuViewController.m in Sources */,
 				2CF36EC4216FA0EA00E1F90B /* CollageViewController.m in Sources */,
 				31CBCD18216F9A8B00127038 /* AppDelegate.m in Sources */,
 			);
