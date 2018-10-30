@@ -9,6 +9,9 @@
 #import "CollageViewController.h"
 
 @interface CollageViewController ()
+{
+    Boolean menuShowing;
+}
 
 @end
 
@@ -16,7 +19,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    menuShowing = false;
+    
+    //_menuView.layer.shadowOpacity = 1;
+    
+}
+
+- (IBAction)menuBtn:(id)sender {
+    if (menuShowing){
+        _leadingConstraint.constant = -207;
+        
+        [UIView animateWithDuration: 0.3 animations: ^{
+            [self.editView setBackgroundColor:[[UIColor whiteColor] colorWithAlphaComponent:1.0]];
+            [self.view layoutIfNeeded]; } ];
+    }
+    else {
+        _leadingConstraint.constant = 0;
+        [UIView animateWithDuration: 0.3 animations: ^{
+            [self.editView setBackgroundColor:[[UIColor whiteColor] colorWithAlphaComponent:0.7]];
+            [self.view layoutIfNeeded]; } ];
+    }
+    menuShowing = !menuShowing;
 }
 
 /*
