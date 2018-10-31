@@ -27,6 +27,22 @@
     
 }
 
+// Add an image to the collage
+- (IBAction)addImageButton:(id)sender {
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
+    imagePickerController.delegate = self;
+    [self presentViewController:imagePickerController animated:NO completion:nil];
+}
+
+// Get rid of the camera roll view after an image has been selected.
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+    self.imageView.image = image;
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (IBAction)menuBtn:(id)sender {
     if (menuShowing){
         _leadingConstraint.constant = -207;

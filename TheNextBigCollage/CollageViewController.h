@@ -10,13 +10,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CollageViewController : UIViewController
+@interface CollageViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leadingConstraint;
 @property (weak, nonatomic) IBOutlet UIView *menuView;
 @property (strong, nonatomic) IBOutlet UIView *editView;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationBar;
 
 @property (strong, nonatomic) id collage;
+
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
 
