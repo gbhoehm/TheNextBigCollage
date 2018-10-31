@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) IBOutlet UIView *editView;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationBar;
 
+@property (strong, nonatomic) id collage;
+
 @end
 
 NS_ASSUME_NONNULL_END

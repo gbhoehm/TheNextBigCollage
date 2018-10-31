@@ -8,15 +8,21 @@
 
 #import "ViewController.h"
 #import "CollectionViewCell.h"
+#import <CoreData/CoreData.h>
+#import "CollageViewController.h"
 
 @interface ViewController ()
 {
     NSArray *titles;
 }
 
+@property (nonatomic, strong) NSArray *titles;
+
 @end
 
 @implementation ViewController
+
+@synthesize titles;
 
 // UICollectionViewDataSource
 
@@ -61,5 +67,17 @@
 
 -(IBAction)unwind:(UIStoryboardSegue *)segue{}
 
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"AddCollage"])
+    {
+        id collage = [NSEntityDescription insertNewObjectForEntityForName:@"Collage"
+                                                   inManagedObjectContext:self.managedObjectContext];
+        //collage.dateCreated = [NSDate date];
+        //collage.
+        [(CollageViewController*)[segue sourceViewController] setCollage:collage];
+    }
+}
 
 @end

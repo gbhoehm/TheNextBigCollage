@@ -10,5 +10,7 @@
 
 @interface ViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
+@property (nonatomic, weak) NSManagedObjectContext *managedObjectContext;
+
 @end
 

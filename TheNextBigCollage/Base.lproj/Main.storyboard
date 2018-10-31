@@ -25,7 +25,7 @@
                                     <navigationItem title="My Collages" id="KeQ-Vq-tb4">
                                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="add" id="D5t-Je-RGB">
                                             <connections>
-                                                <segue destination="3xl-UX-cWZ" kind="show" id="Kmi-zk-pHy"/>
+                                                <segue destination="3xl-UX-cWZ" kind="show" identifier="AddCollage" id="Kmi-zk-pHy"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>

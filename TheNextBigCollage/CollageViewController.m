@@ -17,6 +17,8 @@
 
 @implementation CollageViewController
 
+@synthesize collage;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     menuShowing = false;

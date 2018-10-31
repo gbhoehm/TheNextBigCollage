@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
     <entity name="Collage" representedClassName="Collage" syncable="YES" codeGenerationType="class">
         <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="dateModified" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="favorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="images" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="Image" inverseName="collage" inverseEntity="Image" syncable="YES"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Image" inverseName="collage" inverseEntity="Image" syncable="YES"/>
         <relationship name="textBoxes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TextBox" inverseName="collage" inverseEntity="TextBox" syncable="YES"/>
     </entity>
     <entity name="Image" representedClassName="Image" syncable="YES" codeGenerationType="class">
@@ -31,9 +31,9 @@
         <relationship name="collage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Collage" inverseName="textBoxes" inverseEntity="Collage" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Image" positionX="-63" positionY="-18" width="128" height="150"/>
-        <element name="TextBox" positionX="-54" positionY="36" width="128" height="150"/>
         <element name="Collage" positionX="-36" positionY="81" width="128" height="135"/>
+        <element name="Image" positionX="-63" positionY="-18" width="128" height="150"/>
         <element name="RawImage" positionX="-18" positionY="108" width="128" height="75"/>
+        <element name="TextBox" positionX="-54" positionY="36" width="128" height="150"/>
     </elements>
 </model>
