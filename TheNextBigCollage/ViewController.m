@@ -79,6 +79,10 @@
         collageViewController.collage = [Collage insertCollageWithName:@"MyCollageName"
                                                 inManagedObjectContext:[self managedObjectContext]];
     }
+    else if ([[segue identifier] isEqualToString:@"EditCollage"])
+    {
+        // Get the selected collage, and set it as the collageViewController's collage.
+    }
 }
 
 @end

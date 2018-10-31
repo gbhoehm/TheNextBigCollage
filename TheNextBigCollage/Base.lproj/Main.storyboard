@@ -106,7 +106,11 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <barButtonItem title="Share" width="125" id="5hB-YU-OkN"/>
-                                    <barButtonItem title="Edit" width="125" id="pLz-2B-SMY"/>
+                                    <barButtonItem title="Edit" width="125" id="pLz-2B-SMY">
+                                        <connections>
+                                            <segue destination="3xl-UX-cWZ" kind="show" identifier="EditCollage" id="1j8-JB-VXP"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem title="Delete" width="125" id="pU5-T7-0HW">
                                         <color key="tintColor" red="1" green="0.023286350454939653" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </barButtonItem>
@@ -362,4 +366,7 @@
         <image name="redo" width="50" height="50"/>
         <image name="undo" width="50" height="50"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Kmi-zk-pHy"/>
+    </inferredMetricsTieBreakers>
 </document>
