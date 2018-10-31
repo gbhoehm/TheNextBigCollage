@@ -10,6 +10,7 @@
 #import "CollectionViewCell.h"
 #import <CoreData/CoreData.h>
 #import "CollageViewController.h"
+#import "Collage.h"
 
 @interface ViewController ()
 {
@@ -23,6 +24,7 @@
 @implementation ViewController
 
 @synthesize titles;
+@synthesize managedObjectContext;
 
 // UICollectionViewDataSource
 
@@ -72,11 +74,10 @@
 {
     if ([[segue identifier] isEqualToString:@"AddCollage"])
     {
-        id collage = [NSEntityDescription insertNewObjectForEntityForName:@"Collage"
-                                                   inManagedObjectContext:self.managedObjectContext];
-        //collage.dateCreated = [NSDate date];
-        //collage.
-        [(CollageViewController*)[segue sourceViewController] setCollage:collage];
+        CollageViewController *collageViewController = [segue destinationViewController];
+        
+        collageViewController.collage = [Collage insertCollageWithName:@"MyCollageName"
+                                                inManagedObjectContext:[self managedObjectContext]];
     }
 }
 
