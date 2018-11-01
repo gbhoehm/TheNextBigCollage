@@ -19,6 +19,7 @@
 		31CBCD29216F9A8B00127038 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CBCD28216F9A8B00127038 /* main.m */; };
 		31CBCD33216F9A8B00127038 /* TheNextBigCollageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CBCD32216F9A8B00127038 /* TheNextBigCollageTests.m */; };
 		31CBCD3E216F9A8C00127038 /* TheNextBigCollageUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CBCD3D216F9A8C00127038 /* TheNextBigCollageUITests.m */; };
+		386008F9218A13F500130277 /* Collage.m in Sources */ = {isa = PBXBuildFile; fileRef = 386008F7218A13F500130277 /* Collage.m */; };
 		6F3F896F217F694A00FFA4A4 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3F896E217F694A00FFA4A4 /* CollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,8 @@
 		31CBCD39216F9A8C00127038 /* TheNextBigCollageUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheNextBigCollageUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		31CBCD3D216F9A8C00127038 /* TheNextBigCollageUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TheNextBigCollageUITests.m; sourceTree = "<group>"; };
 		31CBCD3F216F9A8C00127038 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		386008F6218A13F500130277 /* Collage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Collage.h; sourceTree = "<group>"; };
+		386008F7218A13F500130277 /* Collage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Collage.m; sourceTree = "<group>"; };
 		6F3F896D217F694A00FFA4A4 /* CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		6F3F896E217F694A00FFA4A4 /* CollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,6 +117,8 @@
 		31CBCD15216F9A8B00127038 /* TheNextBigCollage */ = {
 			isa = PBXGroup;
 			children = (
+				386008F6218A13F500130277 /* Collage.h */,
+				386008F7218A13F500130277 /* Collage.m */,
 				2CF36EC0216F9EC300E1F90B /* TestFileGubanyi */,
 				31CBCD16216F9A8B00127038 /* AppDelegate.h */,
 				31CBCD17216F9A8B00127038 /* AppDelegate.m */,
@@ -289,6 +294,7 @@
 				31CBCD29216F9A8B00127038 /* main.m in Sources */,
 				3180E3CB217F539C0067BD02 /* CollageMenuViewController.m in Sources */,
 				2CF36EC4216FA0EA00E1F90B /* CollageViewController.m in Sources */,
+				386008F9218A13F500130277 /* Collage.m in Sources */,
 				6F3F896F217F694A00FFA4A4 /* CollectionViewCell.m in Sources */,
 				31CBCD18216F9A8B00127038 /* AppDelegate.m in Sources */,
 			);

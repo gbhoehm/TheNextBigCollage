@@ -9,14 +9,55 @@
 #import "CollageViewController.h"
 
 @interface CollageViewController ()
+{
+    Boolean menuShowing;
+}
 
 @end
 
 @implementation CollageViewController
 
+@synthesize collage;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    menuShowing = false;
+    
+    //_menuView.layer.shadowOpacity = 1;
+    
+}
+
+// Add an image to the collage
+- (IBAction)addImageButton:(id)sender {
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
+    imagePickerController.delegate = self;
+    [self presentViewController:imagePickerController animated:NO completion:nil];
+}
+
+// Get rid of the camera roll view after an image has been selected.
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+    self.imageView.image = image;
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)menuBtn:(id)sender {
+    if (menuShowing){
+        _leadingConstraint.constant = -207;
+        
+        [UIView animateWithDuration: 0.3 animations: ^{
+            [self.editView setBackgroundColor:[[UIColor whiteColor] colorWithAlphaComponent:1.0]];
+            [self.view layoutIfNeeded]; } ];
+    }
+    else {
+        _leadingConstraint.constant = 0;
+        [UIView animateWithDuration: 0.3 animations: ^{
+            [self.editView setBackgroundColor:[[UIColor whiteColor] colorWithAlphaComponent:0.7]];
+            [self.view layoutIfNeeded]; } ];
+    }
+    menuShowing = !menuShowing;
 }
 
 /*

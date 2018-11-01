@@ -8,15 +8,23 @@
 
 #import "ViewController.h"
 #import "CollectionViewCell.h"
+#import <CoreData/CoreData.h>
+#import "CollageViewController.h"
+#import "Collage.h"
 
 @interface ViewController ()
 {
     NSArray *titles;
 }
 
+@property (nonatomic, strong) NSArray *titles;
+
 @end
 
 @implementation ViewController
+
+@synthesize titles;
+@synthesize managedObjectContext;
 
 // UICollectionViewDataSource
 
@@ -61,5 +69,20 @@
 
 -(IBAction)unwind:(UIStoryboardSegue *)segue{}
 
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"AddCollage"])
+    {
+        CollageViewController *collageViewController = [segue destinationViewController];
+        
+        collageViewController.collage = [Collage insertCollageWithName:@"MyCollageName"
+                                                inManagedObjectContext:[self managedObjectContext]];
+    }
+    else if ([[segue identifier] isEqualToString:@"EditCollage"])
+    {
+        // Get the selected collage, and set it as the collageViewController's collage.
+    }
+}
 
 @end
