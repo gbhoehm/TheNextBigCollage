@@ -27,7 +27,7 @@
     
 }
 
-// Add an image to the collage
+// Bring up the image picker view (built in view of photo gallery from Apple)
 - (IBAction)addImageButton:(id)sender {
     UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
     imagePickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
@@ -40,6 +40,9 @@
 {
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
     self.imageView.image = image;
+    
+    // TODO: add image object to collage object here?
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -56,6 +59,7 @@
         [UIView animateWithDuration: 0.3 animations: ^{
             [self.editView setBackgroundColor:[[UIColor whiteColor] colorWithAlphaComponent:0.7]];
             [self.view layoutIfNeeded]; } ];
+        [self.view bringSubviewToFront:_menuView];
     }
     menuShowing = !menuShowing;
 }
