@@ -21,6 +21,9 @@
 		31CBCD3E216F9A8C00127038 /* TheNextBigCollageUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CBCD3D216F9A8C00127038 /* TheNextBigCollageUITests.m */; };
 		386008F9218A13F500130277 /* Collage.m in Sources */ = {isa = PBXBuildFile; fileRef = 386008F7218A13F500130277 /* Collage.m */; };
 		38638B02218A5BE700186B50 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 38638B00218A5BE700186B50 /* Image.m */; };
+		3868B89021947A6A00B6DF91 /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = 3868B88F21947A6A00B6DF91 /* Action.m */; };
+		3868B89121947A6A00B6DF91 /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = 3868B88F21947A6A00B6DF91 /* Action.m */; };
+		3868B89221947A6A00B6DF91 /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = 3868B88F21947A6A00B6DF91 /* Action.m */; };
 		388FDEC12193EE0600E20FF8 /* TextBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 388FDEBF2193EE0600E20FF8 /* TextBox.m */; };
 		388FDEC22193EE0600E20FF8 /* TextBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 388FDEBF2193EE0600E20FF8 /* TextBox.m */; };
 		388FDEC32193EE0600E20FF8 /* TextBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 388FDEBF2193EE0600E20FF8 /* TextBox.m */; };
@@ -75,6 +78,8 @@
 		386008F7218A13F500130277 /* Collage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Collage.m; sourceTree = "<group>"; };
 		38638AFF218A5BE700186B50 /* Image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
 		38638B00218A5BE700186B50 /* Image.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
+		3868B88E21947A1300B6DF91 /* Action.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
+		3868B88F21947A6A00B6DF91 /* Action.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Action.m; sourceTree = "<group>"; };
 		388FDEBE2193EE0600E20FF8 /* TextBox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextBox.h; sourceTree = "<group>"; };
 		388FDEBF2193EE0600E20FF8 /* TextBox.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextBox.m; sourceTree = "<group>"; };
 		388FDEC72193F53C00E20FF8 /* UndoRedoStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UndoRedoStack.h; sourceTree = "<group>"; };
@@ -133,6 +138,8 @@
 		31CBCD15216F9A8B00127038 /* TheNextBigCollage */ = {
 			isa = PBXGroup;
 			children = (
+				3868B88E21947A1300B6DF91 /* Action.h */,
+				3868B88F21947A6A00B6DF91 /* Action.m */,
 				388FDEC72193F53C00E20FF8 /* UndoRedoStack.h */,
 				388FDEC82193F6C700E20FF8 /* UndoRedoStack.m */,
 				388FDEBE2193EE0600E20FF8 /* TextBox.h */,
@@ -323,6 +330,7 @@
 				386008F9218A13F500130277 /* Collage.m in Sources */,
 				388FDEC92193F6C700E20FF8 /* UndoRedoStack.m in Sources */,
 				6F3F896F217F694A00FFA4A4 /* CollectionViewCell.m in Sources */,
+				3868B89021947A6A00B6DF91 /* Action.m in Sources */,
 				31CBCD18216F9A8B00127038 /* AppDelegate.m in Sources */,
 				38638B02218A5BE700186B50 /* Image.m in Sources */,
 			);
@@ -333,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				388FDECA2193F6C700E20FF8 /* UndoRedoStack.m in Sources */,
+				3868B89121947A6A00B6DF91 /* Action.m in Sources */,
 				388FDEC22193EE0600E20FF8 /* TextBox.m in Sources */,
 				31CBCD33216F9A8B00127038 /* TheNextBigCollageTests.m in Sources */,
 			);
@@ -343,6 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				388FDECB2193F6C700E20FF8 /* UndoRedoStack.m in Sources */,
+				3868B89221947A6A00B6DF91 /* Action.m in Sources */,
 				388FDEC32193EE0600E20FF8 /* TextBox.m in Sources */,
 				31CBCD3E216F9A8C00127038 /* TheNextBigCollageUITests.m in Sources */,
 			);

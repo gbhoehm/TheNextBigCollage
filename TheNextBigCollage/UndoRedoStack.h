@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Action.h"
+
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wobjc-root-class"
 
@@ -17,8 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSMutableArray *actions;
 
 -(void)pop;
--(void)pushWithAction:(NSString*) action;
--(NSString *)peek;
+-(void)pushWithAction:(Action*) action;
+-(Action *)peek;
+-(void)clear;
 
 @end
 
