@@ -29,6 +29,11 @@
     
 }
 
+-(void)saveCollage
+{
+    
+}
+
 // Bring up the image picker view (built in view of photo gallery from Apple)
 - (IBAction)addImageButton:(id)sender {
     UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
@@ -36,6 +41,7 @@
     imagePickerController.delegate = self;
     [self presentViewController:imagePickerController animated:NO completion:nil];
 }
+
 
 // Get rid of the camera roll view after an image has been selected.
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
@@ -68,15 +74,16 @@
     menuShowing = !menuShowing;
 }
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    if ([[segue identifier] isEqualToString:@"save"]){
+        [self saveCollage];
+    }
 }
-*/
+
 
 -(IBAction)unwindToEdit:(UIStoryboardSegue *)segue{}
 

@@ -195,7 +195,8 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <state key="normal" title="Save"/>
                                             <connections>
-                                                <segue destination="Ffq-If-WZl" kind="show" id="YYt-Mt-75f"/>
+                                                <action selector="saveImageButton:" destination="3xl-UX-cWZ" eventType="touchUpInside" id="QAw-2L-u1I"/>
+                                                <segue destination="Ffq-If-WZl" kind="show" identifier="save" id="YYt-Mt-75f"/>
                                             </connections>
                                         </button>
                                     </barButtonItem>

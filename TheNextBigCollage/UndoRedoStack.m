@@ -12,19 +12,24 @@
 
 @synthesize actions;
 
--(void)pop;
+-(void)pop
 {
     [[self actions] removeLastObject];
 }
 
--(void)pushWithAction:(NSString *)action;
+-(void)pushWithAction:(Action *)action
 {
     [[self actions] addObject:action];
 }
 
--(NSString *)peek;
+-(Action *)peek
 {
     return [[self actions] lastObject];
+}
+
+-(void)clear
+{
+    [[self actions] removeAllObjects];
 }
 
 @end
