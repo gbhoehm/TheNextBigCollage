@@ -8,7 +8,7 @@
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Image" inverseName="collage" inverseEntity="Image" syncable="YES"/>
         <relationship name="textBoxes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TextBox" inverseName="collage" inverseEntity="TextBox" syncable="YES"/>
     </entity>
-    <entity name="Image" representedClassName="Image" syncable="YES" codeGenerationType="class">
+    <entity name="Image" representedClassName="Image" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="locationX" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="locationY" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -21,7 +21,7 @@
         <attribute name="rawImage" optional="YES" attributeType="Binary" syncable="YES"/>
         <relationship name="image" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="rawImage" inverseEntity="Image" syncable="YES"/>
     </entity>
-    <entity name="TextBox" representedClassName="TextBox" syncable="YES" codeGenerationType="class">
+    <entity name="TextBox" representedClassName="TextBox" syncable="YES">
         <attribute name="fontSize" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="locationX" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="locationY" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
