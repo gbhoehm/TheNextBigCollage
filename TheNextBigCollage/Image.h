@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSNumber *rotation;
 @property (strong, nonatomic) NSNumber *size;
 @property (strong, nonatomic) NSData *rawImage;
+@property (strong, nonatomic) Collage *collage;
 
 +(instancetype) makeNewPictureWithUniqueId:(NSNumber*) uniqueId
                                   rawImage:(NSData*) rawImage

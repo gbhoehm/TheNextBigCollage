@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Collage.h"
+#import "UndoRedoStack.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,8 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIView *menuView;
 @property (strong, nonatomic) IBOutlet UIView *editView;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationBar;
+@property (weak, nonatomic) UndoRedoStack *stack;
 
-@property (strong, nonatomic) id collage;
+@property (strong, nonatomic) Collage *collage;
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 

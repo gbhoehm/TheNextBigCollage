@@ -17,6 +17,7 @@
 @synthesize rotation;
 @synthesize size;
 @synthesize rawImage;
+@dynamic collage;
 
 +(Image*) makeNewPictureWithUniqueId:(NSNumber*) uniqueId
                             rawImage: (NSData*) rawImage

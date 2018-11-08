@@ -15,8 +15,8 @@
 @synthesize dateModified;
 @synthesize favorite;
 @synthesize name;
-@dynamic images;
-@dynamic textBoxes;
+@synthesize images;
+@synthesize textBoxes;
 
 + (Collage*)insertCollageWithName:(NSString*)name
             inManagedObjectContext:(NSManagedObjectContext*)managedObjectContext;

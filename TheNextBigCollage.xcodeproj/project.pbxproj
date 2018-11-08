@@ -21,6 +21,12 @@
 		31CBCD3E216F9A8C00127038 /* TheNextBigCollageUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CBCD3D216F9A8C00127038 /* TheNextBigCollageUITests.m */; };
 		386008F9218A13F500130277 /* Collage.m in Sources */ = {isa = PBXBuildFile; fileRef = 386008F7218A13F500130277 /* Collage.m */; };
 		38638B02218A5BE700186B50 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 38638B00218A5BE700186B50 /* Image.m */; };
+		388FDEC12193EE0600E20FF8 /* TextBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 388FDEBF2193EE0600E20FF8 /* TextBox.m */; };
+		388FDEC22193EE0600E20FF8 /* TextBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 388FDEBF2193EE0600E20FF8 /* TextBox.m */; };
+		388FDEC32193EE0600E20FF8 /* TextBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 388FDEBF2193EE0600E20FF8 /* TextBox.m */; };
+		388FDEC92193F6C700E20FF8 /* UndoRedoStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 388FDEC82193F6C700E20FF8 /* UndoRedoStack.m */; };
+		388FDECA2193F6C700E20FF8 /* UndoRedoStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 388FDEC82193F6C700E20FF8 /* UndoRedoStack.m */; };
+		388FDECB2193F6C700E20FF8 /* UndoRedoStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 388FDEC82193F6C700E20FF8 /* UndoRedoStack.m */; };
 		6F3F896F217F694A00FFA4A4 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3F896E217F694A00FFA4A4 /* CollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +74,10 @@
 		386008F7218A13F500130277 /* Collage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Collage.m; sourceTree = "<group>"; };
 		38638AFF218A5BE700186B50 /* Image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
 		38638B00218A5BE700186B50 /* Image.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
+		388FDEBE2193EE0600E20FF8 /* TextBox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextBox.h; sourceTree = "<group>"; };
+		388FDEBF2193EE0600E20FF8 /* TextBox.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextBox.m; sourceTree = "<group>"; };
+		388FDEC72193F53C00E20FF8 /* UndoRedoStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UndoRedoStack.h; sourceTree = "<group>"; };
+		388FDEC82193F6C700E20FF8 /* UndoRedoStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UndoRedoStack.m; sourceTree = "<group>"; };
 		6F3F896D217F694A00FFA4A4 /* CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		6F3F896E217F694A00FFA4A4 /* CollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +130,10 @@
 		31CBCD15216F9A8B00127038 /* TheNextBigCollage */ = {
 			isa = PBXGroup;
 			children = (
+				388FDEC72193F53C00E20FF8 /* UndoRedoStack.h */,
+				388FDEC82193F6C700E20FF8 /* UndoRedoStack.m */,
+				388FDEBE2193EE0600E20FF8 /* TextBox.h */,
+				388FDEBF2193EE0600E20FF8 /* TextBox.m */,
 				38638AFF218A5BE700186B50 /* Image.h */,
 				38638B00218A5BE700186B50 /* Image.m */,
 				386008F6218A13F500130277 /* Collage.h */,
@@ -294,12 +308,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				388FDEC12193EE0600E20FF8 /* TextBox.m in Sources */,
 				31CBCD1B216F9A8B00127038 /* ViewController.m in Sources */,
 				31CBCD21216F9A8B00127038 /* TheNextBigCollage.xcdatamodeld in Sources */,
 				31CBCD29216F9A8B00127038 /* main.m in Sources */,
 				3180E3CB217F539C0067BD02 /* CollageMenuViewController.m in Sources */,
 				2CF36EC4216FA0EA00E1F90B /* CollageViewController.m in Sources */,
 				386008F9218A13F500130277 /* Collage.m in Sources */,
+				388FDEC92193F6C700E20FF8 /* UndoRedoStack.m in Sources */,
 				6F3F896F217F694A00FFA4A4 /* CollectionViewCell.m in Sources */,
 				31CBCD18216F9A8B00127038 /* AppDelegate.m in Sources */,
 				38638B02218A5BE700186B50 /* Image.m in Sources */,
@@ -310,6 +326,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				388FDECA2193F6C700E20FF8 /* UndoRedoStack.m in Sources */,
+				388FDEC22193EE0600E20FF8 /* TextBox.m in Sources */,
 				31CBCD33216F9A8B00127038 /* TheNextBigCollageTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,6 +336,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				388FDECB2193F6C700E20FF8 /* UndoRedoStack.m in Sources */,
+				388FDEC32193EE0600E20FF8 /* TextBox.m in Sources */,
 				31CBCD3E216F9A8C00127038 /* TheNextBigCollageUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,6 +7,7 @@
 //
 
 #import "CollageViewController.h"
+#import "UndoRedoStack.h"
 
 @interface CollageViewController ()
 {
@@ -18,6 +19,7 @@
 @implementation CollageViewController
 
 @synthesize collage;
+@synthesize stack;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -40,6 +42,8 @@
 {
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
     self.imageView.image = image;
+    
+    [[collage images] addObject:image];
     
     // TODO: add image object to collage object here?
     
