@@ -8,11 +8,11 @@
 
 #import "CollageViewController.h"
 #import "UndoRedoStack.h"
+#import "AppDelegate.h"
 
 @interface CollageViewController ()
-{
-    Boolean menuShowing;
-}
+
+@property (nonatomic) BOOL menuShowing;
 
 @end
 
@@ -23,14 +23,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    menuShowing = false;
+    self.menuShowing = false;
     
     //_menuView.layer.shadowOpacity = 1;
-    
-}
-
--(void)saveCollage
-{
     
 }
 
@@ -42,14 +37,14 @@
     [self presentViewController:imagePickerController animated:NO completion:nil];
 }
 
-
 // Get rid of the camera roll view after an image has been selected.
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+
     self.imageView.image = image;
     
-    [[collage images] addObject:image];
+    [[[self collage] images] addObject:image];
     
     // TODO: add image object to collage object here?
     
@@ -57,7 +52,7 @@
 }
 
 - (IBAction)menuBtn:(id)sender {
-    if (menuShowing){
+    if (self.menuShowing){
         _leadingConstraint.constant = -207;
         
         [UIView animateWithDuration: 0.3 animations: ^{
@@ -71,7 +66,7 @@
             [self.view layoutIfNeeded]; } ];
         [self.view bringSubviewToFront:_menuView];
     }
-    menuShowing = !menuShowing;
+    self.menuShowing = !self.menuShowing;
 }
 
 
@@ -80,7 +75,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([[segue identifier] isEqualToString:@"save"]){
-        [self saveCollage];
+        [(AppDelegate*)[[UIApplication sharedApplication] delegate] saveContext];
     }
 }
 

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Collage.h"
 #import "UndoRedoStack.h"
+#import "AppDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
