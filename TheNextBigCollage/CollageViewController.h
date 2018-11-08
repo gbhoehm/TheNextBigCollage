@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "Collage.h"
 #import "UndoRedoStack.h"
+#import "AppDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CollageViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
+@property (weak, nonatomic) IBOutlet UITextField *collageName;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leadingConstraint;
 @property (weak, nonatomic) IBOutlet UIView *menuView;
 @property (strong, nonatomic) IBOutlet UIView *editView;

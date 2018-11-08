@@ -31,6 +31,7 @@
 		388FDECA2193F6C700E20FF8 /* UndoRedoStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 388FDEC82193F6C700E20FF8 /* UndoRedoStack.m */; };
 		388FDECB2193F6C700E20FF8 /* UndoRedoStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 388FDEC82193F6C700E20FF8 /* UndoRedoStack.m */; };
 		6F3F896F217F694A00FFA4A4 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3F896E217F694A00FFA4A4 /* CollectionViewCell.m */; };
+		6FD9D106219488AC00C80BA5 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD9D105219488AC00C80BA5 /* Settings.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,8 @@
 		388FDEC82193F6C700E20FF8 /* UndoRedoStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UndoRedoStack.m; sourceTree = "<group>"; };
 		6F3F896D217F694A00FFA4A4 /* CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		6F3F896E217F694A00FFA4A4 /* CollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		6FD9D104219488AC00C80BA5 /* Settings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		6FD9D105219488AC00C80BA5 /* Settings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +153,8 @@
 				31CBCD17216F9A8B00127038 /* AppDelegate.m */,
 				31CBCD19216F9A8B00127038 /* ViewController.h */,
 				31CBCD1A216F9A8B00127038 /* ViewController.m */,
+				6FD9D104219488AC00C80BA5 /* Settings.h */,
+				6FD9D105219488AC00C80BA5 /* Settings.m */,
 				6F3F896D217F694A00FFA4A4 /* CollectionViewCell.h */,
 				6F3F896E217F694A00FFA4A4 /* CollectionViewCell.m */,
 				2CF36EC2216FA0EA00E1F90B /* CollageViewController.h */,
@@ -317,6 +322,7 @@
 			files = (
 				388FDEC12193EE0600E20FF8 /* TextBox.m in Sources */,
 				31CBCD1B216F9A8B00127038 /* ViewController.m in Sources */,
+				6FD9D106219488AC00C80BA5 /* Settings.m in Sources */,
 				31CBCD21216F9A8B00127038 /* TheNextBigCollage.xcdatamodeld in Sources */,
 				31CBCD29216F9A8B00127038 /* main.m in Sources */,
 				3180E3CB217F539C0067BD02 /* CollageMenuViewController.m in Sources */,
