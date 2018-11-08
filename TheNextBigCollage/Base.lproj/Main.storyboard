@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -140,6 +140,40 @@
             </objects>
             <point key="canvasLocation" x="1717" y="-779"/>
         </scene>
+        <!--Collection View Controller-->
+        <scene sceneID="Fxh-5D-fr0">
+            <objects>
+                <collectionViewController id="v2M-Jv-taA" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="R30-Pf-2zG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jvc-Nd-ntn">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fyD-cY-aN3">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="v2M-Jv-taA" id="LXX-GT-ryI"/>
+                            <outlet property="delegate" destination="v2M-Jv-taA" id="xdl-UP-XPw"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KhS-ND-84l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-26" y="34"/>
+        </scene>
         <!--EditCollageViewController-->
         <scene sceneID="60g-KK-Hcd">
             <objects>
@@ -205,6 +239,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem id="R4w-xd-sWA">
+                                        <nil key="title"/>
                                         <barButtonItem key="leftBarButtonItem" style="plain" id="SCc-I2-0SF">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Gzf-3V-8va">
                                                 <rect key="frame" x="16" y="0.0" width="47" height="44"/>
@@ -215,6 +250,13 @@
                                                 </connections>
                                             </button>
                                         </barButtonItem>
+                                        <textField key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" id="o81-8G-1Ly">
+                                            <rect key="frame" x="112.5" y="7" width="150" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
                                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="trash" id="ilE-SU-PL7"/>
                                     </navigationItem>
                                 </items>
@@ -231,6 +273,9 @@
                                         <rect key="frame" x="16" y="84" width="82" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Select Filter"/>
+                                        <connections>
+                                            <segue destination="v2M-Jv-taA" kind="show" id="iY8-Le-nq1"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRw-Kk-ERw">
                                         <rect key="frame" x="16" y="122" width="97" height="30"/>
@@ -241,6 +286,9 @@
                                         <rect key="frame" x="16" y="8" width="91" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Select Frame"/>
+                                        <connections>
+                                            <segue destination="v2M-Jv-taA" kind="show" id="i83-Hw-I8i"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.97152283029999997" green="0.97152283029999997" blue="0.97152283029999997" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
@@ -278,6 +326,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="6RD-AV-sII"/>
                     <connections>
+                        <outlet property="collageName" destination="o81-8G-1Ly" id="oPP-1Y-L1J"/>
                         <outlet property="editView" destination="yFO-1R-Lsu" id="8BL-LD-ezX"/>
                         <outlet property="imageView" destination="X1B-FK-ML8" id="M6J-qa-BtT"/>
                         <outlet property="leadingConstraint" destination="WeS-3j-fGh" id="Ui5-q5-LnC"/>
@@ -380,5 +429,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Kmi-zk-pHy"/>
+        <segue reference="iY8-Le-nq1"/>
     </inferredMetricsTieBreakers>
 </document>
