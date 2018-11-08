@@ -11,6 +11,7 @@
 #import <CoreData/CoreData.h>
 #import "CollageViewController.h"
 #import "Collage.h"
+#import "Settings.h"
 
 @interface ViewController ()
 {
@@ -18,6 +19,8 @@
 }
 
 @property (nonatomic, strong) NSArray *titles;
+@property (nonatomic, strong) NSArray *cachedCollages;
+@property (nonatomic) BOOL needToFetchCollages;
 
 @end
 
@@ -32,14 +35,16 @@
     return 1;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return titles.count;
-}
-
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
     CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    cell.images.image = [UIImage imageNamed:titles[indexPath.row]];
-    cell.cellTitle.text = titles[indexPath.row];
+    
+    Collage* collageForCell = [[self collages] objectAtIndex:[indexPath indexAtPosition:1]];
+    
+    [cell.cellTitle setText:[collageForCell name]];
+    //[cell.images image:[collageForCell ]]
+    //cell.images.image = [UIImage imageNamed:titles[indexPath.row]];
+    //cell.cellTitle.text = titles[indexPath.row];
     return cell;
 }
 
@@ -49,14 +54,33 @@
     
 }
 
+- (NSArray*)collages {
+    
+    if (![self needToFetchCollages])
+    {
+        return [self cachedCollages];
+    } else {
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:@"Collage"];
+    
+    NSSortDescriptor *collageSortDescriptor = [Settings collageSortDescriptor];
+    
+        NSArray* collages = [[self.managedObjectContext executeFetchRequest:request error:NULL] sortedArrayUsingDescriptors:@[collageSortDescriptor]];
+    
+    [self setCachedCollages:collages];
+    [self setNeedToFetchCollages:NO];
+    
+    return collages;
+    }
+}
 
-
-
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return [[self collages] count];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    titles = @[@"Collage1", @"Collage2", @"Collage3"];
-    
+    //titles = @[@"Collage1", @"Collage2", @"Collage3"];
+    [self setNeedToFetchCollages:YES];
     [[self view] setBackgroundColor:[UIColor whiteColor]];
     
 }
