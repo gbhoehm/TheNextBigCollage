@@ -16,8 +16,8 @@
     if (![[Settings collageSortDescriptorOptions] containsObject:key])
     {
         // Set default to createdDate
-        key = @"createdDate";
-        [Settings setCollageSortDescriptorWithKey:@"createdDate"];
+        key = @"dateCreated";
+        [Settings setCollageSortDescriptorWithKey:@"dateCreated"];
     }
     
     // Title is ascending order - the created and revised dates are descending order.
@@ -39,7 +39,7 @@
 
 + (NSArray*)collageSortDescriptorOptions
 {
-    return @[@"createdDate", @"revisedDate", @"name"];
+    return @[@"dateCreated", @"dateModified", @"name"];
     //[NSDictionary dictionaryWithObjects:@[@"Last Revised First", @"Last Created First", @"Alphabetical by Title"]
     //                                   forKeys:@[@"revisedDate", @"createdDate", @"title"]];
 }
