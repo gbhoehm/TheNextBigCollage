@@ -21,10 +21,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) IBOutlet UIView *editView;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationBar;
 @property (weak, nonatomic) UndoRedoStack *stack;
-
+@property (nonatomic) BOOL editMode;
 @property (strong, nonatomic) Collage *collage;
-
-
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
 

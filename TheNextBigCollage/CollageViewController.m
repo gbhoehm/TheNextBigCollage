@@ -21,13 +21,14 @@
 
 @synthesize collage;
 @synthesize stack;
+@synthesize managedObjectContext;
+@synthesize editMode;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.menuShowing = false;
-    
+    [[self collageName] setText:[[self collage] name]];
     //_menuView.layer.shadowOpacity = 1;
-    
 }
 
 // Bring up the image picker view (built in view of photo gallery from Apple)
@@ -87,10 +88,21 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([[segue identifier] isEqualToString:@"save"]){
+        [self saveCollage];
         [(AppDelegate*)[[UIApplication sharedApplication] delegate] saveContext];
+    }
+    else if ([[segue identifier] isEqualToString:@"Cancel"])
+    {
+        if (self.editMode == NO)
+        {
+            [self.managedObjectContext deleteObject:collage];
+        }
     }
 }
 
+- (void)saveCollage {
+    [[self collage] setName:[[self collageName] text]];
+}
 
 -(IBAction)unwindToEdit:(UIStoryboardSegue *)segue{}
 

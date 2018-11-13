@@ -11,5 +11,10 @@
 @interface ViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, weak) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic) BOOL needToFetchCollages;
+@property (weak, nonatomic) IBOutlet UICollectionView *collageCollectionView;
+@property (nonatomic) BOOL editMode;
+
+- (NSArray*)collages;
 
 @end
