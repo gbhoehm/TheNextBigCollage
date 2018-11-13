@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) Collage *collage;
 
-@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+
 
 @end
 

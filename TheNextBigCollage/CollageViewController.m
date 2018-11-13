@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 
 @interface CollageViewController ()
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (nonatomic) BOOL menuShowing;
 
@@ -41,15 +42,26 @@
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
-
-    self.imageView.image = image;
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    [self.scrollView setContentSize:CGSizeMake(50, 50)];
+    
+    
     
     [[[self collage] images] addObject:image];
     
-    // TODO: add image object to collage object here?
+    UIImageView *imageView = [[UIImageView alloc] initWithImage: image];
+    [imageView setFrame:CGRectMake(50, 50, 50, 50)];
+
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.scrollView addSubview: imageView];
+    
+    
 }
+
+
+
 
 - (IBAction)menuBtn:(id)sender {
     if (self.menuShowing){
