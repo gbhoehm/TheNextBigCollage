@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL editMode;
 @property (strong, nonatomic) Collage *collage;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+
 
 @end
 
