@@ -10,17 +10,14 @@
 #import "CollectionViewCell.h"
 #import <CoreData/CoreData.h>
 #import "CollageViewController.h"
+#import "SelectedCollageViewController.h"
 #import "Collage.h"
 #import "Settings.h"
 
 @interface ViewController ()
-{
-    NSArray *titles;
-}
 
 @property (nonatomic, strong) NSArray *titles;
 @property (nonatomic, strong) NSArray *cachedCollages;
-@property (nonatomic) BOOL needToFetchCollages;
 
 @end
 
@@ -28,6 +25,9 @@
 
 @synthesize titles;
 @synthesize managedObjectContext;
+@synthesize collageCollectionView;
+@synthesize needToFetchCollages;
+@synthesize editMode;
 
 // UICollectionViewDataSource
 
@@ -85,14 +85,14 @@
     
 }
 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
--(IBAction)unwind:(UIStoryboardSegue *)segue{}
-
+-(IBAction)unwind:(UIStoryboardSegue *)segue{
+    [[self collageCollectionView] reloadData];
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -102,11 +102,20 @@
         
         collageViewController.collage = [Collage insertCollageWithName:@"MyCollageName"
                                                 inManagedObjectContext:[self managedObjectContext]];
+        [collageViewController setEditMode:NO];
+        [collageViewController setManagedObjectContext:self.managedObjectContext];
     }
-    else if ([[segue identifier] isEqualToString:@"EditCollage"])
+    else if ([[segue identifier] isEqualToString:@"SelectedCollage"])
     {
+        NSInteger index = [[[self collageCollectionView] indexPathForCell:(UICollectionViewCell*)sender] indexAtPosition:1];
+        Collage* selectedCollage = [[self collages] objectAtIndex:index];
+        
+        [(SelectedCollageViewController*)[segue destinationViewController] setEditMode:YES];
+        [(SelectedCollageViewController*)[segue destinationViewController] setManagedObjectContext:self.managedObjectContext];
+        [(SelectedCollageViewController*)[segue destinationViewController] setCollage:selectedCollage];
         // Get the selected collage, and set it as the collageViewController's collage.
     }
+    [self setNeedToFetchCollages:YES];
 }
 
 @end
