@@ -28,7 +28,7 @@
     collage.dateModified = [NSDate date];
     
     // TODO: Set empty arrays for images and textboxes, textbox objects may not need to be persisted, but just included in a collage object that IS persisted.
-    //collage.images = [NSMutableArray new];
+    collage.images = [NSMutableArray new];
     //collage.textBoxes = [NSMutableArray new];
     
     
