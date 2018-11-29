@@ -23,8 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSData *rawImage;
 @property (strong, nonatomic) Collage *collage;
 
-+(instancetype) makeNewPictureWithUniqueId:(NSNumber*) uniqueId
-                                  rawImage:(NSData*) rawImage
++(instancetype) insertNewRawImage:(NSData*) rawImage
                     inManagedObjectContext:(NSManagedObjectContext*) managedObjectContext;
 
 @end

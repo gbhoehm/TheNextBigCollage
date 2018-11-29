@@ -19,8 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSDate *dateModified;
 @property (nonatomic) bool favorite;
 @property (strong, nonatomic) NSString *name;
-@property (strong, nonatomic) NSMutableArray *images;
-@property (strong, nonatomic) NSMutableArray *textBoxes;
+@property (strong, nonatomic) NSMutableOrderedSet *images;
+@property (strong, nonatomic) NSMutableOrderedSet *textBoxes;
 
 +(instancetype)insertCollageWithName:(NSString*) name
                inManagedObjectContext:(NSManagedObjectContext*)managedObjectContext;

@@ -8,15 +8,16 @@
 //
 
 #import "Collage.h"
+#import "Image.h"
 
 @implementation Collage
 
-@synthesize dateCreated;
-@synthesize dateModified;
-@synthesize favorite;
-@synthesize name;
-@synthesize images;
-@synthesize textBoxes;
+@dynamic dateCreated;
+@dynamic dateModified;
+@dynamic favorite;
+@dynamic name;
+@dynamic images;
+@dynamic textBoxes;
 
 + (Collage*)insertCollageWithName:(NSString*)name
             inManagedObjectContext:(NSManagedObjectContext*)managedObjectContext;
@@ -28,7 +29,7 @@
     collage.dateModified = [NSDate date];
     
     // TODO: Set empty arrays for images and textboxes, textbox objects may not need to be persisted, but just included in a collage object that IS persisted.
-    collage.images = [NSMutableArray new];
+    collage.images = [NSMutableOrderedSet new];
     //collage.textBoxes = [NSMutableArray new];
     
     
@@ -37,5 +38,6 @@
     
     return collage;
 }
+
 
 @end

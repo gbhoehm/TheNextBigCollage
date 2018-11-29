@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18B75" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
     <entity name="Collage" representedClassName="Collage" syncable="YES">
         <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="dateModified" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -8,18 +8,15 @@
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Image" inverseName="collage" inverseEntity="Image" syncable="YES"/>
         <relationship name="textBoxes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TextBox" inverseName="collage" inverseEntity="TextBox" syncable="YES"/>
     </entity>
+    <entity name="Delete" representedClassName="Delete" syncable="YES" codeGenerationType="class"/>
     <entity name="Image" representedClassName="Image" syncable="YES">
-        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="locationX" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="locationY" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rawImage" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="rotation" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="size" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="uniqueId" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="collage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Collage" inverseName="images" inverseEntity="Collage" syncable="YES"/>
-        <relationship name="rawImage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RawImage" inverseName="image" inverseEntity="RawImage" syncable="YES"/>
-    </entity>
-    <entity name="RawImage" representedClassName="RawImage" syncable="YES" codeGenerationType="class">
-        <attribute name="rawImage" optional="YES" attributeType="Binary" syncable="YES"/>
-        <relationship name="image" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="rawImage" inverseEntity="Image" syncable="YES"/>
     </entity>
     <entity name="TextBox" representedClassName="TextBox" syncable="YES">
         <attribute name="fontSize" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -32,8 +29,8 @@
     </entity>
     <elements>
         <element name="Collage" positionX="-36" positionY="81" width="128" height="135"/>
+        <element name="Delete" positionX="-18" positionY="108" width="128" height="45"/>
         <element name="Image" positionX="-63" positionY="-18" width="128" height="150"/>
-        <element name="RawImage" positionX="-18" positionY="108" width="128" height="75"/>
         <element name="TextBox" positionX="-54" positionY="36" width="128" height="150"/>
     </elements>
 </model>
