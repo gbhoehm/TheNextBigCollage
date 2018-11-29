@@ -15,7 +15,7 @@
 @property (strong, nonatomic) NSMutableArray *imagesTemp;
 
 @property (nonatomic) BOOL menuShowing;
-
+@property (nonatomic, assign) CGPoint startPan;
 @end
 
 @implementation CollageViewController
@@ -30,6 +30,8 @@
     self.menuShowing = false;
     [[self collageName] setText:[[self collage] name]];
     self.imagesTemp = [NSMutableArray new];
+    
+    self.scrollView.contentSize = CGSizeMake(100,100);
     
     if ([self editMode] == YES) {
         //Add images from collage to the temporary array of images and populate them in the scroll view
@@ -52,6 +54,53 @@
     imagePickerController.delegate = self;
     [self presentViewController:imagePickerController animated:NO completion:nil];
 }
+- (IBAction)userPinch:(UIPinchGestureRecognizer *)sender {
+    if([sender state] == UIGestureRecognizerStateEnded){
+        
+        CGFloat scale = sender.scale;
+        //CGRect oldBounds = self.scrollView.subviews.lastObject.bounds;
+        //[self.scrollView.subviews.lastObject setFrame:CGRectMake(oldBounds.size.width + scale,
+                                                                // oldBounds.size.height + scale,300,300)];
+        UIImageView *image = self.scrollView.subviews.lastObject;
+        //CGAffineTransform current = image.transform; use me for undo button
+        image.transform = CGAffineTransformScale(image.transform, scale, scale);
+        self.scrollView.subviews.lastObject.removeFromSuperview;
+        [self.scrollView addSubview: image];
+        
+        sender.scale = 1;
+    }
+    
+}
+
+- (IBAction)dragImage:(UIPanGestureRecognizer *)sender
+{
+    if ([sender state] == UIGestureRecognizerStateBegan)
+    {
+        [self setStartPan:[sender locationInView:[self scrollView]]];
+    }
+    if ([sender state] == UIGestureRecognizerStateEnded)
+    {
+        CGPoint end = [sender locationInView:[self scrollView]];
+        CGPoint scale = CGPointMake(end.x - self.startPan.x, end.y - self.startPan.y);
+        
+        
+    
+    }
+}
+
+- (IBAction)userRotate:(UIRotationGestureRecognizer *)sender {
+}
+
+- (IBAction)selectImage:(UIButton *)sender {
+    
+    
+    
+}
+- (IBAction)moveImage:(UIPanGestureRecognizer *)sender {
+    
+    
+    
+}
 
 // Get rid of the camera roll view after an image has been selected.
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
@@ -59,16 +108,12 @@
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
     
     [self dismissViewControllerAnimated:YES completion:nil];
-    
-    [self.scrollView setContentSize:CGSizeMake(50, 50)];
-    
-    
+
     NSData *imageData = UIImagePNGRepresentation(image);
     [[self imagesTemp] addObject:imageData];
     
     UIImageView *imageView = [[UIImageView alloc] initWithImage: image];
-    [imageView setFrame:CGRectMake(50, 50, 50, 50)];
-
+    [imageView setFrame:CGRectMake(100, 100, 100, 100)];
     
     [self.scrollView addSubview: imageView];
 }
