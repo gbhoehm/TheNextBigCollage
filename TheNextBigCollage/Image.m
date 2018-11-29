@@ -11,16 +11,15 @@
 
 @implementation Image
 
-@synthesize uniqueId;
-@synthesize locationX;
-@synthesize locationY;
-@synthesize rotation;
-@synthesize size;
-@synthesize rawImage;
+@dynamic uniqueId;
+@dynamic locationX;
+@dynamic locationY;
+@dynamic rotation;
+@dynamic size;
+@dynamic rawImage;
 @dynamic collage;
 
-+(Image*) makeNewPictureWithUniqueId:(NSNumber*) uniqueId
-                            rawImage: (NSData*) rawImage
++(Image*) insertNewRawImage: (NSData*) rawImage
                     inManagedObjectContext:(NSManagedObjectContext*) managedObjectContext;
 {
     Image *image = [NSEntityDescription insertNewObjectForEntityForName:@"Image"

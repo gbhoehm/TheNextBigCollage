@@ -9,10 +9,11 @@
 #import "CollageViewController.h"
 #import "UndoRedoStack.h"
 #import "AppDelegate.h"
+#import "Image.h"
 
 @interface CollageViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (strong, nonatomic) NSMutableArray *imagesTemp;
+@property (strong, nonatomic) NSMutableOrderedSet *imagesTemp;
 
 @property (nonatomic) BOOL menuShowing;
 
@@ -29,16 +30,17 @@
     [super viewDidLoad];
     self.menuShowing = false;
     [[self collageName] setText:[[self collage] name]];
-    self.imagesTemp = [NSMutableArray new];
+    self.imagesTemp = [NSMutableOrderedSet new];
     
     if ([self editMode] == YES) {
         //Add images from collage to the temporary array of images and populate them in the scroll view
         self.imagesTemp = self.collage.images;
         for (int i = 0; i < [[self imagesTemp] count]; i++) {
-            UIImageView *imageView = [[UIImageView alloc] initWithImage: [UIImage imageWithData:[[self imagesTemp] objectAtIndex:i]]];
+            Image *tempImage = [[self imagesTemp] objectAtIndex:i];
+            UIImage *image = [UIImage imageWithData:[tempImage rawImage]];
+            UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
             [imageView setFrame:CGRectMake(50, 50, 50, 50)];
             [self.scrollView addSubview: imageView];
-            
         }
     }
     
@@ -62,9 +64,9 @@
     
     [self.scrollView setContentSize:CGSizeMake(50, 50)];
     
-    
     NSData *imageData = UIImagePNGRepresentation(image);
-    [[self imagesTemp] addObject:imageData];
+    Image *newImage = [Image insertNewRawImage:imageData inManagedObjectContext:[self managedObjectContext]];
+    [[self imagesTemp] addObject:newImage];
     
     UIImageView *imageView = [[UIImageView alloc] initWithImage: image];
     [imageView setFrame:CGRectMake(50, 50, 50, 50)];
@@ -98,7 +100,7 @@
     
     if ([[segue identifier] isEqualToString:@"save"]){
         [self saveCollage];
-        //[(AppDelegate*)[[UIApplication sharedApplication] delegate] saveContext];
+        [(AppDelegate*)[[UIApplication sharedApplication] delegate] saveContext];
     }
     else if ([[segue identifier] isEqualToString:@"Cancel"])
     {
@@ -114,11 +116,7 @@
     [[self collage] setDateModified:[NSDate date]];
     
     //Saves images of the temporary array to the array of the collage
-    // saveContext statement is commented out in prepareForSegue because the images are not actually stored in persistent store with the array of images from collage
-    //Need to use the image class to store them and then un-comment saveContext
-    for (int i = 0; i < [[self imagesTemp] count]; i++) {
-        [[[self collage] images] insertObject:[[self imagesTemp] objectAtIndex:i] atIndex:i];
-    }
+    [[self collage] setImages:[self imagesTemp]];
 }
 
 -(IBAction)unwindToEdit:(UIStoryboardSegue *)segue{}
