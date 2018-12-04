@@ -84,25 +84,23 @@
     {
         CGPoint end = [sender locationInView:[self scrollView]];
         CGPoint scale = CGPointMake(end.x - self.startPan.x, end.y - self.startPan.y);
-        
-        
-    
+        self.scrollView.subviews.lastObject.transform = CGAffineTransformMakeTranslation(scale.x, scale.y);
+      
     }
 }
 
 - (IBAction)userRotate:(UIRotationGestureRecognizer *)sender {
+    self.scrollView.subviews.lastObject.transform = CGAffineTransformMakeRotation(sender.rotation);
 }
 
 - (IBAction)selectImage:(UIButton *)sender {
     
-    
-    
-}
-- (IBAction)moveImage:(UIPanGestureRecognizer *)sender {
-    
-    
+    self.scrollView.subviews.lastObject.layer.borderColor = UIColor.blackColor.CGColor;
+    self.scrollView.subviews.lastObject.layer.borderWidth = 2;
+
     
 }
+
 
 // Get rid of the camera roll view after an image has been selected.
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info

@@ -310,6 +310,7 @@
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="Og0-i9-C6Z" appends="YES" id="g8i-S1-gax"/>
                                     <outletCollection property="gestureRecognizers" destination="3L1-w8-QNX" appends="YES" id="ac2-VE-Yom"/>
+                                    <outletCollection property="gestureRecognizers" destination="edf-C3-4GU" appends="YES" id="fZT-Nh-vlH"/>
                                 </connections>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BvX-2s-1qm">
@@ -360,7 +361,7 @@
                 </pinchGestureRecognizer>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="edf-C3-4GU">
                     <connections>
-                        <action selector="moveImage:" destination="3xl-UX-cWZ" id="Zu3-05-o0h"/>
+                        <action selector="dragImage:" destination="3xl-UX-cWZ" id="7mX-5G-asx"/>
                     </connections>
                 </panGestureRecognizer>
                 <rotationGestureRecognizer id="3L1-w8-QNX">
