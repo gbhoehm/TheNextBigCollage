@@ -17,6 +17,8 @@
 
 @property (nonatomic) BOOL menuShowing;
 @property (nonatomic, assign) CGPoint startPan;
+@property (nonatomic) int imageNum;
+@property (nonatomic) int imageSelected;
 @end
 
 @implementation CollageViewController
@@ -32,7 +34,10 @@
     [[self collageName] setText:[[self collage] name]];
     self.imagesTemp = [NSMutableOrderedSet new];
     
-    self.scrollView.contentSize = CGSizeMake(100,100);
+    self.scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width * 4,
+                                             [UIScreen mainScreen].bounds.size.height);
+    self.imageSelected = -1;
+    self.imageNum = 2;// acounting for two extra unknown imageviews
     
     if ([self editMode] == YES) {
         //Add images from collage to the temporary array of images and populate them in the scroll view
@@ -65,9 +70,9 @@
                                                                 // oldBounds.size.height + scale,300,300)];
         UIImageView *image = self.scrollView.subviews.lastObject;
         //CGAffineTransform current = image.transform; use me for undo button
-        image.transform = CGAffineTransformScale(image.transform, scale, scale);
-        self.scrollView.subviews.lastObject.removeFromSuperview;
-        [self.scrollView addSubview: image];
+        //image.transform =
+        self.scrollView.subviews[self.imageSelected].transform = CGAffineTransformScale(image.transform, scale, scale);
+        //[self.scrollView addSubview: image];
         
         sender.scale = 1;
     }
@@ -84,22 +89,37 @@
     {
         CGPoint end = [sender locationInView:[self scrollView]];
         CGPoint scale = CGPointMake(end.x - self.startPan.x, end.y - self.startPan.y);
-        self.scrollView.subviews.lastObject.transform = CGAffineTransformMakeTranslation(scale.x, scale.y);
+        self.scrollView.subviews[self.imageSelected].transform = CGAffineTransformMakeTranslation(scale.x, scale.y);
       
     }
 }
 
 - (IBAction)userRotate:(UIRotationGestureRecognizer *)sender {
-    self.scrollView.subviews.lastObject.transform = CGAffineTransformMakeRotation(sender.rotation);
+    self.scrollView.subviews[self.imageSelected].transform = CGAffineTransformMakeRotation(sender.rotation);
 }
 
 - (IBAction)selectImage:(UIButton *)sender {
-    
-    self.scrollView.subviews.lastObject.layer.borderColor = UIColor.blackColor.CGColor;
-    self.scrollView.subviews.lastObject.layer.borderWidth = 2;
+    if(self.imageSelected == -1)
+    {
+        self.imageSelected = 2;
+        self.scrollView.subviews[self.imageSelected].layer.borderColor = UIColor.cyanColor.CGColor;
+        self.scrollView.subviews[self.imageSelected].layer.borderWidth = 2;
+    }// check if there was an image selected
+    else {// remove border on prior selected image and add border on next image
+        self.scrollView.subviews[self.imageSelected].layer.borderColor = UIColor.clearColor.CGColor;
+        self.imageSelected++;
+        if(self.imageSelected > self.imageNum-1)
+        {
+            self.imageSelected = -1;
+        }// last image then remove border and reset imageSelected
+        else {
+            self.scrollView.subviews[self.imageSelected].layer.borderColor = UIColor.cyanColor.CGColor;
+            self.scrollView.subviews[self.imageSelected].layer.borderWidth = 2;
+        }// not last image, add border on next image in array
+    }
 
     
-}
+}// select image
 
 
 // Get rid of the camera roll view after an image has been selected.
@@ -114,9 +134,30 @@
     [[self imagesTemp] addObject:newImage];
     
     UIImageView *imageView = [[UIImageView alloc] initWithImage: image];
-    [imageView setFrame:CGRectMake(100, 100, 100, 100)];
+    [imageView setFrame:CGRectMake(150, 200, 100, 100)];
     
     [self.scrollView addSubview: imageView];
+    
+    
+    self.imageNum++;
+    if(self.imageSelected == -1)
+    {
+        self.imageSelected = self.imageNum-1;
+        self.scrollView.subviews[self.imageSelected].layer.borderColor = UIColor.cyanColor.CGColor;
+        self.scrollView.subviews[self.imageSelected].layer.borderWidth = 2;
+    }// check if there was an image selected
+    else {// remove border on prior selected image and add border on next image
+        self.scrollView.subviews[self.imageSelected].layer.borderColor = UIColor.clearColor.CGColor;
+        self.imageSelected = self.imageNum-1;
+        if(self.imageSelected > self.imageNum-1)
+        {
+            self.imageSelected = -1;
+        }// last image then remove border and reset imageSelected
+        else {
+            self.scrollView.subviews[self.imageSelected].layer.borderColor = UIColor.cyanColor.CGColor;
+            self.scrollView.subviews[self.imageSelected].layer.borderWidth = 2;
+        }// not last image, add border on next image in array
+    }
 }
 
 - (IBAction)menuBtn:(id)sender {
