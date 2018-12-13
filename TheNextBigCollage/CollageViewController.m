@@ -34,8 +34,8 @@
     [[self collageName] setText:[[self collage] name]];
     self.imagesTemp = [NSMutableOrderedSet new];
     
-    self.scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width * 4,
-                                             [UIScreen mainScreen].bounds.size.height);
+    self.scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width * 3,
+                                             [UIScreen mainScreen].bounds.size.height * (3/2));
     self.imageSelected = -1;
     self.imageNum = 2;// acounting for two extra unknown imageviews
     
@@ -62,10 +62,10 @@
     [self presentViewController:imagePickerController animated:NO completion:nil];
 }
 - (IBAction)userPinch:(UIPinchGestureRecognizer *)sender {
-    if([sender state] == UIGestureRecognizerStateEnded){
+    if(self.imageSelected > 0){
         
         // value to scale image by
-        CGFloat scale = 5 * sender.scale;
+        CGFloat scale = sender.scale;
         
         //get the current frame
         CGFloat w = self.scrollView.subviews[self.imageSelected].frame.size.width;
@@ -96,6 +96,8 @@
  */
 
 - (IBAction)moveImage:(UITapGestureRecognizer *)sender {
+    if(self.imageSelected > 0){
+    
     //get the current frame location
     CGFloat w = self.scrollView.subviews[self.imageSelected].frame.size.width;
     CGFloat h = self.scrollView.subviews[self.imageSelected].frame.size.height;
@@ -105,10 +107,13 @@
     
     //set with offset so image pops in at where the cursor/tap is
     [self.scrollView.subviews[self.imageSelected] setFrame:CGRectMake(end.x - (w/2),end.y - (h/2),w,h)];
+    }
 }
 
 - (IBAction)userRotate:(UIRotationGestureRecognizer *)sender {
+    if(self.imageSelected > 0){
         self.scrollView.subviews[self.imageSelected].transform = CGAffineTransformMakeRotation(sender.rotation);
+    }
 }
 
 - (IBAction)selectImage:(UIButton *)sender {
