@@ -64,38 +64,51 @@
 - (IBAction)userPinch:(UIPinchGestureRecognizer *)sender {
     if([sender state] == UIGestureRecognizerStateEnded){
         
-        CGFloat scale = sender.scale;
-        //CGRect oldBounds = self.scrollView.subviews.lastObject.bounds;
-        //[self.scrollView.subviews.lastObject setFrame:CGRectMake(oldBounds.size.width + scale,
-                                                                // oldBounds.size.height + scale,300,300)];
-        UIImageView *image = self.scrollView.subviews.lastObject;
-        //CGAffineTransform current = image.transform; use me for undo button
-        //image.transform =
-        self.scrollView.subviews[self.imageSelected].transform = CGAffineTransformScale(image.transform, scale, scale);
-        //[self.scrollView addSubview: image];
+        // value to scale image by
+        CGFloat scale = 5 * sender.scale;
+        
+        //get the current frame
+        CGFloat w = self.scrollView.subviews[self.imageSelected].frame.size.width;
+        CGFloat h = self.scrollView.subviews[self.imageSelected].frame.size.height;
+        CGFloat x = self.scrollView.subviews[self.imageSelected].frame.origin.x;
+        CGFloat y = self.scrollView.subviews[self.imageSelected].frame.origin.y;
+        
+        // set the frame of the UIImage to its new size
+        [self.scrollView.subviews[self.imageSelected] setFrame:CGRectMake(x,y,w + scale,h + scale)];
         
         sender.scale = 1;
     }
     
 }
 
+/* switched to tap
 - (IBAction)dragImage:(UIPanGestureRecognizer *)sender
 {
-    if ([sender state] == UIGestureRecognizerStateBegan)
-    {
-        [self setStartPan:[sender locationInView:[self scrollView]]];
-    }
-    if ([sender state] == UIGestureRecognizerStateEnded)
-    {
-        CGPoint end = [sender locationInView:[self scrollView]];
-        CGPoint scale = CGPointMake(end.x - self.startPan.x, end.y - self.startPan.y);
-        self.scrollView.subviews[self.imageSelected].transform = CGAffineTransformMakeTranslation(scale.x, scale.y);
-      
-    }
+    //get the current frame location
+    CGFloat w = self.scrollView.subviews[self.imageSelected].frame.size.width;
+    CGFloat h = self.scrollView.subviews[self.imageSelected].frame.size.height;
+    
+    //where the user pans to.
+    CGPoint end = [sender locationInView:[self scrollView]];
+    
+    [self.scrollView.subviews[self.imageSelected] setFrame:CGRectMake(end.x,end.y,w,h)];
+}
+ */
+
+- (IBAction)moveImage:(UITapGestureRecognizer *)sender {
+    //get the current frame location
+    CGFloat w = self.scrollView.subviews[self.imageSelected].frame.size.width;
+    CGFloat h = self.scrollView.subviews[self.imageSelected].frame.size.height;
+    
+    //where the user taps
+    CGPoint end = [sender locationInView:[self scrollView]];
+    
+    //set with offset so image pops in at where the cursor/tap is
+    [self.scrollView.subviews[self.imageSelected] setFrame:CGRectMake(end.x - (w/2),end.y - (h/2),w,h)];
 }
 
 - (IBAction)userRotate:(UIRotationGestureRecognizer *)sender {
-    self.scrollView.subviews[self.imageSelected].transform = CGAffineTransformMakeRotation(sender.rotation);
+        self.scrollView.subviews[self.imageSelected].transform = CGAffineTransformMakeRotation(sender.rotation);
 }
 
 - (IBAction)selectImage:(UIButton *)sender {

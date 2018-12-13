@@ -310,7 +310,7 @@
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="Og0-i9-C6Z" appends="YES" id="g8i-S1-gax"/>
                                     <outletCollection property="gestureRecognizers" destination="3L1-w8-QNX" appends="YES" id="ac2-VE-Yom"/>
-                                    <outletCollection property="gestureRecognizers" destination="edf-C3-4GU" appends="YES" id="fZT-Nh-vlH"/>
+                                    <outletCollection property="gestureRecognizers" destination="uQb-yu-suF" appends="YES" id="zKp-mA-uLV"/>
                                 </connections>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BvX-2s-1qm">
@@ -359,16 +359,16 @@
                         <action selector="userPinch:" destination="3xl-UX-cWZ" id="2RZ-m1-gXa"/>
                     </connections>
                 </pinchGestureRecognizer>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="edf-C3-4GU">
-                    <connections>
-                        <action selector="dragImage:" destination="3xl-UX-cWZ" id="7mX-5G-asx"/>
-                    </connections>
-                </panGestureRecognizer>
                 <rotationGestureRecognizer id="3L1-w8-QNX">
                     <connections>
                         <action selector="userRotate:" destination="3xl-UX-cWZ" id="127-Ic-u1Z"/>
                     </connections>
                 </rotationGestureRecognizer>
+                <tapGestureRecognizer id="uQb-yu-suF">
+                    <connections>
+                        <action selector="moveImage:" destination="3xl-UX-cWZ" id="t4E-qf-lFl"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="840.79999999999995" y="33.733133433283363"/>
         </scene>
