@@ -46,12 +46,10 @@
             Image *tempImage = [[self imagesTemp] objectAtIndex:i];
             UIImage *image = [UIImage imageWithData:[tempImage rawImage]];
             UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-            [imageView setFrame:CGRectMake(50, 50, 50, 50)];
+            [imageView setFrame:CGRectMake([tempImage.locationX floatValue], [tempImage.locationY floatValue], [tempImage.sizeW floatValue], [tempImage.sizeH floatValue])];
             [self.scrollView addSubview: imageView];
         }
     }
-    
-    //_menuView.layer.shadowOpacity = 1;
 }
 
 // Bring up the image picker view (built in view of photo gallery from Apple)
@@ -149,10 +147,16 @@
 
     NSData *imageData = UIImagePNGRepresentation(image);
     Image *newImage = [Image insertNewRawImage:imageData inManagedObjectContext:[self managedObjectContext]];
-    [[self imagesTemp] addObject:newImage];
-    
+  
     UIImageView *imageView = [[UIImageView alloc] initWithImage: image];
     [imageView setFrame:CGRectMake(150, 200, 100, 100)];
+    
+    newImage.locationX = @(imageView.frame.origin.x);
+    newImage.locationY = @(imageView.frame.origin.y);
+    newImage.sizeH = @(imageView.frame.size.height);
+    newImage.sizeW = @(imageView.frame.size.width);
+    
+    [[self imagesTemp] addObject:newImage];
     
     [self.scrollView addSubview: imageView];
     
@@ -180,18 +184,18 @@
 
 - (IBAction)menuBtn:(id)sender {
     if (self.menuShowing){
-        _leadingConstraint.constant = -207;
+        self.leadingConstraint.constant = -207;
         
         [UIView animateWithDuration: 0.3 animations: ^{
             [self.editView setBackgroundColor:[[UIColor whiteColor] colorWithAlphaComponent:1.0]];
             [self.view layoutIfNeeded]; } ];
     }
     else {
-        _leadingConstraint.constant = 0;
+        self.leadingConstraint.constant = 0;
         [UIView animateWithDuration: 0.3 animations: ^{
             [self.editView setBackgroundColor:[[UIColor whiteColor] colorWithAlphaComponent:0.7]];
             [self.view layoutIfNeeded]; } ];
-        [self.view bringSubviewToFront:_menuView];
+        [self.view bringSubviewToFront:self.menuView];
     }
     self.menuShowing = !self.menuShowing;
 }

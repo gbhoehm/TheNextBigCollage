@@ -19,7 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSNumber *locationX;
 @property (strong, nonatomic) NSNumber *locationY;
 @property (strong, nonatomic) NSNumber *rotation;
-@property (strong, nonatomic) NSNumber *size;
+@property (strong, nonatomic) NSNumber *sizeH;
+@property (strong, nonatomic) NSNumber *sizeW;
 @property (strong, nonatomic) NSData *rawImage;
 @property (strong, nonatomic) Collage *collage;
 

@@ -15,7 +15,8 @@
 @dynamic locationX;
 @dynamic locationY;
 @dynamic rotation;
-@dynamic size;
+@dynamic sizeH;
+@dynamic sizeW;
 @dynamic rawImage;
 @dynamic collage;
 

@@ -14,7 +14,8 @@
         <attribute name="locationY" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="rawImage" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="rotation" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="size" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="sizeH" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="sizeW" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="uniqueId" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="collage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Collage" inverseName="images" inverseEntity="Collage" syncable="YES"/>
     </entity>
@@ -30,7 +31,7 @@
     <elements>
         <element name="Collage" positionX="-36" positionY="81" width="128" height="135"/>
         <element name="Delete" positionX="-18" positionY="108" width="128" height="45"/>
-        <element name="Image" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="Image" positionX="-63" positionY="-18" width="128" height="165"/>
         <element name="TextBox" positionX="-54" positionY="36" width="128" height="150"/>
     </elements>
 </model>
