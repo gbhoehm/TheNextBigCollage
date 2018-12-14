@@ -42,9 +42,7 @@
     Collage* collageForCell = [[self collages] objectAtIndex:[indexPath indexAtPosition:1]];
     
     [cell.cellTitle setText:[collageForCell name]];
-    //[cell.images image:[collageForCell ]]
-    //cell.images.image = [UIImage imageNamed:titles[indexPath.row]];
-    //cell.cellTitle.text = titles[indexPath.row];
+    
     return cell;
 }
 
@@ -79,7 +77,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //titles = @[@"Collage1", @"Collage2", @"Collage3"];
+    
     [self setNeedToFetchCollages:YES];
     [[self view] setBackgroundColor:[UIColor whiteColor]];
     

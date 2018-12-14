@@ -41,7 +41,6 @@
     }
     else if ([[segue identifier] isEqualToString:@"DeleteSegue"])
     {
-        //Cannot detele right now if there are images in the collage because images need to be stored in image class first
         [self.managedObjectContext deleteObject:self.collage];
     }
 }
